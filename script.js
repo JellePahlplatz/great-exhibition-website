@@ -1,4 +1,5 @@
 const parallaxElements = Array.from(document.querySelectorAll("[data-parallax]"));
+const showcaseCards = Array.from(document.querySelectorAll(".showcase-card"));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function updateParallax() {
@@ -37,3 +38,26 @@ window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
 window.addEventListener("resize", requestParallaxUpdate);
 window.addEventListener("load", requestParallaxUpdate);
 requestParallaxUpdate();
+
+if (prefersReducedMotion) {
+  showcaseCards.forEach((card) => card.classList.add("is-visible"));
+} else {
+  const showcaseObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) {
+          continue;
+        }
+
+        entry.target.classList.add("is-visible");
+        showcaseObserver.unobserve(entry.target);
+      }
+    },
+    {
+      threshold: 0.3,
+      rootMargin: "0px 0px -10% 0px"
+    }
+  );
+
+  showcaseCards.forEach((card) => showcaseObserver.observe(card));
+}
