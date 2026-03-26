@@ -3,167 +3,246 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Great Exhibition is a cinematic game experience showcased through a parallax single-page website.">
+  <meta name="description" content="The Great Exhibition — an adventure game where you run your own museum, explore ancient temples, and uncover forgotten secrets.">
   <title>The Great Exhibition | Advonger Games</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero" id="top">
-      <div class="hero-backdrop"></div>
-      <nav class="topbar">
-        <a class="brand" href="#top" aria-label="Advonger Games home">
-          <img src="images/Advonger_Games_logo.png" alt="Advonger Games logo">
-        </a>
-      </nav>
+  <div class="grain" aria-hidden="true"></div>
 
-      <div class="hero-content" data-parallax data-speed="0.18">
-        <p class="eyebrow">Advonger Games presents</p>
-        <h1>The Great Exhibition</h1>
-        <p class="hero-copy">
-          An adventure game where you run your own museum. Explore ancient temples to gather artifacts. Increase your prestigfe and descend ever deeper.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#gallery">Enter The Showcase</a>
-          <a class="button button-secondary" href="#contact">Contact</a>
+  <header class="hero" id="top">
+    <canvas class="dust-canvas" aria-hidden="true"></canvas>
+
+    <nav class="topbar">
+      <a class="brand" href="#top" aria-label="Advonger Games home">
+        <img src="images/Advonger_Games_logo.png" alt="Advonger Games logo">
+      </a>
+      <div class="nav-links">
+        <a href="#trailer">Trailer</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero-bg">
+      <img src="images/Screenshot1.png" alt="">
+    </div>
+
+    <div class="hero-content" data-parallax data-speed="0.12">
+      <div class="hero-ornament" aria-hidden="true">
+        <svg width="200" height="12" viewBox="0 0 200 12">
+          <line x1="0" y1="6" x2="85" y2="6" stroke="currentColor" stroke-width="0.5"/>
+          <circle cx="100" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          <line x1="115" y1="6" x2="200" y2="6" stroke="currentColor" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <p class="eyebrow reveal" data-delay="0">Advonger Games presents</p>
+      <h1 class="reveal" data-delay="1">The Great<br>Exhibition</h1>
+      <p class="hero-copy reveal" data-delay="2">
+        An adventure game where you run your own museum. Explore ancient temples
+        to gather artifacts. Increase your prestige and descend ever deeper.
+      </p>
+      <div class="hero-actions reveal" data-delay="3">
+        <a class="btn btn-gold" href="#gallery">Enter The Showcase</a>
+        <a class="btn btn-ghost" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero-sigil" aria-hidden="true">
+      <img src="images/Artifacts.png" alt="">
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="trailer section" id="trailer">
+      <div class="section-header trailer-header scroll-reveal">
+        <p class="eyebrow">Official Trailer</p>
+        <h2>Watch the Trailer</h2>
+      </div>
+
+      <div class="trailer-frame scroll-reveal">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/RSC0NTQQ5ZE"
+          title="The Great Exhibition — Official Trailer"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 800 24" preserveAspectRatio="xMidYMid meet">
+        <line x1="0" y1="12" x2="340" y2="12" stroke="currentColor" stroke-width="0.5"/>
+        <path d="M355,12 L370,2 L385,12 L370,22 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="400" cy="12" r="2" fill="currentColor"/>
+        <path d="M415,12 L430,2 L445,12 L430,22 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="460" y1="12" x2="800" y2="12" stroke="currentColor" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <section class="features section" id="experience">
+      <div class="section-header scroll-reveal">
+        <p class="eyebrow">The Experience</p>
+        <h2>Descend into ancient temples to expand your ever-growing collection of artifacts.</h2>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card scroll-reveal" data-delay="0">
+          <div class="feature-numeral">I</div>
+          <h3>Curate your Collection</h3>
+          <p>The prior curator, Mr. Silus Vane, has mysteriously disappeared. As the new curator, you must follow in his footsteps and expand the collection without succumbing to his same fate.</p>
+          <div class="feature-line"></div>
+        </article>
+
+        <article class="feature-card scroll-reveal" data-delay="1">
+          <div class="feature-numeral">II</div>
+          <h3>Become an Archeologist</h3>
+          <p>Explore ancient temples, solve puzzles, and uncover hidden secrets to acquire new artifacts. Each discovery adds to your collection and brings you closer to understanding the mysteries of the ancient civilizations.</p>
+          <div class="feature-line"></div>
+        </article>
+
+        <article class="feature-card scroll-reveal" data-delay="2">
+          <div class="feature-numeral">III</div>
+          <h3>Gain Prestige</h3>
+          <p>As you expand your collection of artifacts, your reputation and influence grows, opening new opportunities for ever further exploration.</p>
+          <div class="feature-line"></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 800 24" preserveAspectRatio="xMidYMid meet">
+        <line x1="0" y1="12" x2="340" y2="12" stroke="currentColor" stroke-width="0.5"/>
+        <path d="M355,12 L370,2 L385,12 L370,22 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="400" cy="12" r="2" fill="currentColor"/>
+        <path d="M415,12 L430,2 L445,12 L430,22 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="460" y1="12" x2="800" y2="12" stroke="currentColor" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <section class="gallery section" id="gallery">
+      <div class="section-header gallery-header scroll-reveal">
+        <p class="eyebrow">The Showcase</p>
+        <h2>Artifacts, danger, and forgotten secrets.</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item gallery-wide scroll-reveal">
+          <div class="gallery-media">
+            <img src="images/Screenshot1.png" alt="The Great Exhibition screenshot one" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-index">01</span>
+            <h3>Curate your Collection</h3>
+            <p>Place artifacts into your museum to gather prestige. Each artifact is like a page in a book &mdash; assemble the whole book to fully understand the story.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item scroll-reveal">
+          <div class="gallery-media">
+            <img src="images/Screenshot2.png" alt="The Great Exhibition screenshot two" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-index">02</span>
+            <h3>Set in the 1900s</h3>
+            <p>Experience the world of archeology as it was in the early 20th century, with all its challenges and discoveries.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item scroll-reveal">
+          <div class="gallery-media">
+            <img src="images/Screenshot3.png" alt="The Great Exhibition screenshot three" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-index">03</span>
+            <h3>Artifacts</h3>
+            <p>Gather an incredible amount of handcrafted voxel artifacts.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item gallery-wide scroll-reveal">
+          <div class="gallery-media">
+            <img src="images/Screenshot4.png" alt="The Great Exhibition screenshot four" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-index">04</span>
+            <h3>Danger &amp; Death</h3>
+            <p>Danger lurks around every corner. From spikes to giant boulders you'll have to run away from. Being an archeologist has never been easy!</p>
+          </div>
+        </article>
+
+        <article class="gallery-item scroll-reveal">
+          <div class="gallery-media">
+            <img src="images/Screenshot5.png" alt="The Great Exhibition screenshot five" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-index">05</span>
+            <h3>Metroidvania</h3>
+            <p>Discover hidden mechanisms and secret passages. Unlock old areas with new found skills and tools.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item scroll-reveal">
+          <div class="gallery-media">
+            <img src="images/Screenshot6.png" alt="The Great Exhibition screenshot six" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-index">06</span>
+            <h3>The Darkest Secret</h3>
+            <p>All civilizations have a secret... How did they rise to prominence? Descend deeper to find out...</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 800 24" preserveAspectRatio="xMidYMid meet">
+        <line x1="0" y1="12" x2="340" y2="12" stroke="currentColor" stroke-width="0.5"/>
+        <path d="M355,12 L370,2 L385,12 L370,22 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="400" cy="12" r="2" fill="currentColor"/>
+        <path d="M415,12 L430,2 L445,12 L430,22 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="460" y1="12" x2="800" y2="12" stroke="currentColor" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <section class="contact section" id="contact">
+      <div class="section-header contact-header scroll-reveal">
+        <p class="eyebrow">Correspondence</p>
+        <h2>Get in Touch</h2>
+      </div>
+
+      <div class="contact-body scroll-reveal">
+        <p>For any questions about The Great Exhibition, press requests, partnership enquiries, or general updates, email Advonger Games directly.</p>
+        <div class="contact-email-block">
+          <span class="contact-label">Contact email</span>
+          <a class="contact-email" href="mailto:advongergames@outlook.com">advongergames@outlook.com</a>
         </div>
       </div>
-    </header>
+    </section>
+  </main>
 
-    <main>
-      <section class="intro section" id="experience">
-        <div class="section-heading">
-          <p class="eyebrow">Curate your Collection</p>
-          <h2>Descend into ancient temples to expand your ever growing collection of artifacts.</h2>
-        </div>
-        <div class="intro-grid">
-          <article>
-            <h3>Curate your Collection</h3>
-            <p>
-                The prior curator, Mr. Silus Vane, has mysteriously disappeared. As the new curator, you must follow in his footsteps and expand the collection without succumbing to his same fate.
-            </p>
-          </article>
-          <article>
-            <h3>Become an Archeologist</h3>
-            <p>
-                Explore ancient temples, solve puzzles, and uncover hidden secrets to acquire new artifacts. Each discovery adds to your collection and brings you closer to understanding the mysteries of the ancient civilizations. 
-            </p>
-          </article>
-          <article>
-            <h3>Gain Prestige</h3>
-            <p>
-              As you expand your collection of artifacts, your reputation and influence grows, opening new opportunities for ever further exploration.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="gallery section" id="gallery">
-        <div class="trailer-feature">
-          <div class="section-heading trailer-heading">
-            <p class="eyebrow">Official trailer</p>
-          </div>
-
-          <div class="trailer-player">
-            <div class="trailer-frame">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/RSC0NTQQ5ZE?si=EnCVtJQtzwzAWikQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-
-        <div class="section-heading gallery-heading">
-          <p class="eyebrow">Screenshots</p>
-          <h2>Become an archeologist, gather ancient artifacts and curate your collection.</h2>
-        </div>
-
-        <article class="showcase-card">
-          <div class="showcase-media">
-            <img src="images/Screenshot1.png" alt="The Great Exhibition screenshot one">
-            <div class="showcase-overlay left-align">
-              <p class="showcase-index">01</p>
-              <h3>Curate your Collection</h3>
-              <p>Place artifacts into your museum to gather prestige. Each artifact is like a page in a book, assemble the whole book to fully understand the story.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <div class="showcase-media">
-            <img src="images/Screenshot2.png" alt="The Great Exhibition screenshot two">
-            <div class="showcase-overlay right-align">
-              <p class="showcase-index">02</p>
-              <h3>Set in the 1900s</h3>
-              <p>Experience the world of archeology as it was in the early 20th century, with all its challenges and discoveries.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <div class="showcase-media">
-            <img src="images/Screenshot3.png" alt="The Great Exhibition screenshot three">
-            <div class="showcase-overlay left-align compact">
-              <p class="showcase-index">03</p>
-              <h3>Artifacts</h3>
-              <p>Gather an incredible amount of handcrafted voxel artifacts.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <div class="showcase-media">
-            <img src="images/Screenshot4.png" alt="The Great Exhibition screenshot four">
-            <div class="showcase-overlay right-align">
-              <p class="showcase-index">04</p>
-              <h3>Danger & Death</h3>
-              <p>Danger lurks around every corner. From spikes to giant boulders you'll have to run away from. Being an archeologist has never been easy!</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <div class="showcase-media">
-            <img src="images/Screenshot5.png" alt="The Great Exhibition screenshot five">
-            <div class="showcase-overlay left-align compact">
-              <p class="showcase-index">05</p>
-              <h3>Metroidvania</h3>
-              <p>Discover hidden mechanisms and secret passages. Unlock old areas with new found skills and tools.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <div class="showcase-media">
-            <img src="images/Screenshot6.png" alt="The Great Exhibition screenshot six">
-            <div class="showcase-overlay right-align">
-              <p class="showcase-index">06</p>
-              <h3>The Darkest Secret</h3>
-              <p>All civilizations have a secret... How did they rise to prominence? Descend deeper to find out...</p>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section class="contact section" id="contact">
-        <div class="section-heading contact-heading">
-          <p class="eyebrow">Contact Advonger Games</p>
-        </div>
-
-        <div class="contact-layout">
-          <div class="contact-copy">
-            <p>
-              For any questions about The Great Exhibition, press requests, partnership enquiries, or general updates, email Advonger Games directly.
-            </p>
-            <p class="contact-note">
-              Contact email: <a class="contact-email" href="mailto:advongergames@outlook.com">advongergames@outlook.com</a>
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+  <footer class="site-footer">
+    <div class="footer-ornament" aria-hidden="true">
+      <svg width="100" height="12" viewBox="0 0 100 12">
+        <line x1="0" y1="6" x2="42" y2="6" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="50" cy="6" r="2" fill="currentColor" opacity="0.5"/>
+        <line x1="58" y1="6" x2="100" y2="6" stroke="currentColor" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <p>&copy; Advonger Games</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
